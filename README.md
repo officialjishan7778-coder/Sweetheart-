@@ -1,1 +1,173 @@
-# Sweetheart-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise for Aaliya ❤️</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+
+  .page {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    position: relative;
+    padding-top: 20vh;
+  }
+
+  .active {
+    display: block;
+  }
+
+  button {
+    padding: 10px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    background: #ff4081;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #e73370;
+  }
+
+  /* Heart animation */
+  .hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .hearts span {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 4s linear infinite;
+  }
+
+  .hearts span:after,
+  .hearts span:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+  }
+
+  .hearts span:before {
+    top: -10px;
+    left: 0;
+  }
+
+  .hearts span:after {
+    left: 10px;
+    top: 0;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(45deg); opacity: 0; }
+  }
+
+  /* Text box */
+  .textbox {
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: left;
+    animation: typing 6s steps(60, end) forwards;
+    white-space: pre-wrap;
+    overflow: hidden;
+    border: 2px solid gold;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+</style>
+</head>
+<body>
+
+<!-- Audio -->
+<audio id="bgMusic" autoplay loop>
+  <source src="your-song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Page 1 -->
+<div class="page active" id="page1">
+  <h1>Kya tum surprise ke liye tayar ho Aaliya ❤️</h1>
+  <button onclick="nextPage(2)">Yes</button>
+  <button onclick="alert('Please click Yes ❤️')">No</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+  <h1>Surprise toh nahi, ye mere dil ki baat hai</h1>
+  <button onclick="nextPage(3)">Next</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="page3">
+  <div class="textbox" id="text3">
+Labon pe baat hai magar dil ghabrata hai,
+Aapko khone ka darr har pal sataata hai.
+Par aaj himmat karke keh hi dete hain,
+Humein aapse ishq hai
+  </div>
+  <button onclick="nextPage(4)">Next</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="page4">
+  <div class="hearts" id="hearts"></div>
+  <h1 style="font-family: 'Cursive', sans-serif; font-size: 28px;">
+    Tum ek gulab ka phul ho.<br>
+    Me tumko hamesha sambhal kr rkhna chahta hu apne paas
+  </h1>
+  <h2>Will you be mine? 💖</h2>
+  <button onclick="alert('Yay! ❤️')">Yes</button>
+  <button onclick="alert('No option disabled ❤️')">No</button>
+</div>
+
+<script>
+function nextPage(pageNum) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => page.classList.remove('active'));
+  document.getElementById('page'+pageNum).classList.add('active');
+}
+
+// Create multiple hearts dynamically
+const heartsContainer = document.getElementById('hearts');
+for(let i=0; i<50; i++){
+  let span = document.createElement('span');
+  span.style.left = Math.random() * 100 + 'vw';
+  span.style.animationDuration = (2 + Math.random() * 3) + 's';
+  heartsContainer.appendChild(span);
+}
+</script>
+
+</body>
+</html>-
